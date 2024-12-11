@@ -4,7 +4,7 @@
 
 1. Create a new Anaconda environment:
 ```bash
-conda create -n ammonia-sim python=3.9
+conda create -n ammonia-sim python=3.10.10
 ```
 
 2. Activate the environment:
