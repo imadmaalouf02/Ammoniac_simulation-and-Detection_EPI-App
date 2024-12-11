@@ -1,0 +1,138 @@
+
+
+
+{% extends "layout.html" %}
+{% block content %}
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page d'accueil</title>
+    <style>
+        html, body {
+                justify-content: center;
+            }
+        .custom-legend {
+            font-size: 36px; /* Larger text size */
+            font-weight: bold; /* Bold text */
+            margin-bottom: 20px;
+            text-align: center; /* Center the text */
+            border-bottom: 2px solid #008080; /* Line at the bottom using Teal */
+            padding-bottom: 10px;
+        }
+        /* Centrer le contenu entre le header et le footer */
+        .main-content {
+            text-align: center;
+            margin: auto; /* Permet au contenu d'être centré verticalement */
+        }
+
+        #learn {
+          font-size: 35px; 
+          color: rgb(23, 11, 155); 
+          text-shadow: 3px 3px 5px rgba(155, 156, 160, 0.8), -1px -1px 2px rgba(127, 122, 165, 0.8); 
+          padding: 20px; 
+          border: 3px solid rgb(202, 225, 226);
+          border-radius: 10px; 
+          background-color: rgb(202, 225, 226);
+          display: inline-block;
+           
+        }
+
+        button {
+            font-size: 18px;
+            padding: 10px 20px;
+            background-color: #008080;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #005f5f;
+            transform: scale(1.2); 
+        }
+        footer {
+            height: 165px; /* Fixer une hauteur spécifique */
+            padding: 10px 20px; /* Réduire les espacements */
+            font-size: 10px; /* Réduire la taille du texte */
+            text-align: center; /* Centrer le texte */
+        }
+        /* Section des images */
+        .image-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .image-container img {
+            margin: 0 15px;
+            width: 300px; /* Taille de l'image */
+            height: 300px;
+            border-radius: 10px; /* Ajouter des bords arrondis */
+            transition: transform 0.3s ease; /* Animation de transformation */
+        }
+
+        .image-container img:hover {
+            transform: scale(1.2); /* Augmenter la taille de l'image au survol */
+        }
+        .custom-legend {
+            margin-top: 50px; /* Ajustez cette valeur pour augmenter ou diminuer l'espace */
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-align: center;
+            border-bottom: 2px solid #008080;
+            padding-bottom: 10px;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px; /* Espace entre les boutons */
+            margin-top: 20px;
+        }
+
+    </style>
+</head>
+
+<body>
+    
+    <div class="main-content">
+
+        <h1 class="custom-legend">Bienvenue dans la Simulation d'Ammoniac</h1>
+        
+        <!-- Conteneur pour les boutons -->
+        <div class="button-container">
+            <button onclick="location.href='/simulation'">Accéder à la Simulation</button>
+            <button onclick="location.href='/detection'">Détection avec Computer Vision</button>
+        </div>
+
+        <!-- Conteneur d'images -->
+        <div class="image-container">
+            <img src="static/src/image1.jpg" alt="Image 1">
+            <img src="static/src/image2.jpg" alt="Image 2">
+            <img src="static/src/image3.jpg" alt="Image 3">
+        </div>
+    </div>
+</body>
+{% endblock content %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

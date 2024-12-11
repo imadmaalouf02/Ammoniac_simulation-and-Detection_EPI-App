@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Détection avec Computer Vision</title>
+    <style>
+        .main-content {
+            text-align: center;
+            margin: auto;
+        }
+
+        .image-container img {
+            max-width: 500px;
+            margin: 10px;
+            border: 2px solid #008080;
+            border-radius: 10px;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        button {
+            font-size: 18px;
+            padding: 10px 20px;
+            background-color: #008080;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #005f5f;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main-content">
+        <h1>Détection avec Computer Vision</h1>
+        <form action="/image" method="post" enctype="multipart/form-data">
+            <input type="file" name="image" accept="image/*" required>
+            <button type="submit">Soumettre l'image</button>
+        </form>
+
+        {% if input_image and output_image %}
+        <div class="image-container">
+            <h3>Image originale</h3>
+            <img src="{{ input_image }}" alt="Image originale">
+            <h3>Image annotée</h3>
+            <img src="{{ output_image }}" alt="Image annotée">
+        </div>
+        {% endif %}
+    </div>
+</body>
+
+{% endblock content %}

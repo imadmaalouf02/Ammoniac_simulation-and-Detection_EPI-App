@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Détection en Direct</title>
+    <style>
+        .main-content {
+            text-align: center;
+            margin: auto;
+        }
+
+        .video-container img {
+            max-width: 500px;
+            margin: 10px;
+            border: 2px solid #008080;
+            border-radius: 10px;
+        }
+
+        button {
+            font-size: 18px;
+            padding: 10px 20px;
+            background-color: #008080;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #005f5f;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main-content">
+        <h1>Détection en Direct</h1>
+        <div class="video-container">
+            <h3>Flux vidéo en direct</h3>
+            <img src="/video_feed" alt="Flux vidéo en direct">
+        </div>
+    </div>
+</body>
+
+{% endblock content %}
