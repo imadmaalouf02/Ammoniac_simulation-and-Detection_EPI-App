@@ -4,61 +4,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Détection Vidéo</title>
+    <title>Video Detection</title>
     <style>
-        .main-content {
+        body {
+            font-family: Arial, sans-serif;
             text-align: center;
-            margin: auto;
+            margin: 20px;
         }
-
-        .video-container video {
-            max-width: 500px;
-            margin: 10px;
-            border: 2px solid #008080;
-            border-radius: 10px;
+        .video-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
         }
-
-        form {
-            margin-top: 20px;
+        video {
+            width: 45%;
+            height: auto;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
         }
-
-        button {
-            font-size: 18px;
-            padding: 10px 20px;
-            background-color: #008080;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #005f5f;
+        .message {
+            color: red;
+            font-weight: bold;
         }
     </style>
 </head>
-
 <body>
-    <div class="main-content">
-        <h1>Détection Vidéo</h1>
-        <form action="/video" method="post" enctype="multipart/form-data">
-            <input type="file" name="video" accept="video/*" required>
-            <button type="submit">Soumettre une vidéo</button>
-        </form>
+    <h1>Détection d'objets dans la vidéo</h1>
 
-        {% if input_video and output_video %}
-        <div class="video-container">
-            <h3>Vidéo originale</h3>
+    <form action="/video" method="POST" enctype="multipart/form-data">
+        <input type="file" name="video" accept="video/*" required>
+        <button type="submit">Uploader et analyser la vidéo</button>
+    </form>
+
+    {% if input_video and output_video %}
+    <h2>Résultats :</h2>
+    <div class="video-container">
+        <!-- Vidéo d'entrée -->
+        <div>
+            <h3>Vidéo Originale</h3>
             <video controls>
                 <source src="{{ input_video }}" type="video/mp4">
-            </video>
-            <h3>Vidéo annotée</h3>
-            <video controls>
-                <source src="{{ output_video }}" type="video/mp4">
+                Votre navigateur ne supporte pas l'élément vidéo.
             </video>
         </div>
-        {% endif %}
+
+        <!-- Vidéo annotée -->
+        <div>
+            <h3>Vidéo Annotée</h3>
+            <video controls>
+                <source src="{{ output_video }}" type="video/mp4">
+                Votre navigateur ne supporte pas l'élément vidéo.
+            </video>
+        </div>
     </div>
+    {% else %}
+    <p class="message">Veuillez uploader une vidéo pour commencer l'analyse.</p>
+    {% endif %}
 </body>
 
 {% endblock content %}
